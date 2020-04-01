@@ -2,6 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClassLibrary1.Interfaces;
+using ClassLibrary1.Interfaces.IRepositories;
+using ClassLibrary1.Interfaces.IServices;
+using ClassLibrary1.Repositories;
+using ClassLibrary1.Services;
+using ClassLibrary1.UnitOfWork;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +32,17 @@ namespace WebApplicationEF
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            #region  repositories
+            services.AddTransient<IReservationRepository, ReservationRepository>();
+            #endregion
+
+            #region  services
+
+            services.AddTransient<IReservationService, ReservationService>();
+
+            #endregion
+
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

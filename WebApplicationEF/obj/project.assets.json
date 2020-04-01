@@ -4975,11 +4975,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Downloads\\Telegram Desktop\\ForZaya\\ForZaya\\WebApplicationEF\\WebApplicationEF\\WebApplicationEF.csproj",
+      "projectUniqueName": "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\WebApplicationEF\\WebApplicationEF.csproj",
       "projectName": "WebApplicationEF",
-      "projectPath": "C:\\Users\\User\\Downloads\\Telegram Desktop\\ForZaya\\ForZaya\\WebApplicationEF\\WebApplicationEF\\WebApplicationEF.csproj",
+      "projectPath": "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\WebApplicationEF\\WebApplicationEF.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Downloads\\Telegram Desktop\\ForZaya\\ForZaya\\WebApplicationEF\\WebApplicationEF\\obj\\",
+      "outputPath": "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\WebApplicationEF\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4998,8 +4998,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\User\\Downloads\\Telegram Desktop\\ForZaya\\ForZaya\\WebApplicationEF\\ClassLibrary1\\ClassLibrary1.csproj": {
-              "projectPath": "C:\\Users\\User\\Downloads\\Telegram Desktop\\ForZaya\\ForZaya\\WebApplicationEF\\ClassLibrary1\\ClassLibrary1.csproj"
+            "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\ClassLibrary1\\ClassLibrary1.csproj": {
+              "projectPath": "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\ClassLibrary1\\ClassLibrary1.csproj"
             }
           }
         }

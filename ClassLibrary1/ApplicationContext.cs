@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ClassLibrary2
 {
-    class ApplicationContext:DbContext
+    public class ApplicationContext:DbContext
     {
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Tour> Tours { get; set; }

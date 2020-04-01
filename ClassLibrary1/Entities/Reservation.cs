@@ -4,9 +4,9 @@ using System.Text;
 
 namespace ClassLibrary1.Entities
 {
-    public class Reservation
+    public class Reservation : BaseEntity
     {
-        public int Id { get; set; }
+        
         public string TourId { get; set; }
         public int UserId { get; set; }
         public int NumberOfPeople { get; set; }

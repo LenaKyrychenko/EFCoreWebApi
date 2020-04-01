@@ -6184,11 +6184,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Downloads\\Telegram Desktop\\ForZaya\\ForZaya\\WebApplicationEF\\ClassLibrary1\\ClassLibrary1.csproj",
+      "projectUniqueName": "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\ClassLibrary1\\ClassLibrary1.csproj",
       "projectName": "ClassLibrary1",
-      "projectPath": "C:\\Users\\User\\Downloads\\Telegram Desktop\\ForZaya\\ForZaya\\WebApplicationEF\\ClassLibrary1\\ClassLibrary1.csproj",
+      "projectPath": "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\ClassLibrary1\\ClassLibrary1.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Downloads\\Telegram Desktop\\ForZaya\\ForZaya\\WebApplicationEF\\ClassLibrary1\\obj\\",
+      "outputPath": "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\ClassLibrary1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

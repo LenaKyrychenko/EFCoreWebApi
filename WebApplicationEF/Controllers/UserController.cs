@@ -1,4 +1,6 @@
-﻿using ClassLibrary1.Entities;
+﻿using AutoMapper;
+using BLL.DTO;
+using ClassLibrary1.Entities;
 using ClassLibrary1.Interfaces.IServices;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -24,9 +26,13 @@ namespace WebApplicationEF.Controllers
         #region APIs
         [Route("User")]
         [HttpGet]
-        public IEnumerable<User> Get()
+        public IEnumerable<UserDTO> Get()
         {
-            return _UserService.GetAll();
+            var models = _UserService.GetAll().ToList();
+            var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
+            var mapper = new Mapper(config);
+
+            return mapper.Map<List<User>, List<UserDTO>>(models);
         }
 
         [Route("User/{Id}")]

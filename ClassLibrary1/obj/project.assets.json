@@ -6184,9 +6184,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\ClassLibrary1\\ClassLibrary1.csproj",
-      "projectName": "ClassLibrary1",
-      "projectPath": "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\ClassLibrary1\\ClassLibrary1.csproj",
+      "projectUniqueName": "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\ClassLibrary1\\DAL.csproj",
+      "projectName": "DAL",
+      "projectPath": "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\ClassLibrary1\\DAL.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\ClassLibrary1\\obj\\",
       "projectStyle": "PackageReference",

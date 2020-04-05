@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "UYYfFdHwWzqtNEfVUoLcbROdBQ7zpKAPDsLUO6raoj/2mBlEPbGi6WK9PvyyHFMq3wjYnCjpBCqACXSffcI9hA==",
+  "dgSpecHash": "uNMIONn9XXsBmJh3qMEuJxZImUqMRWYVjr5v3I77pgx4K8sKfr0b5V4z536drtwMqi6Qp9tcI+U2TIfMiBFyTw==",
   "success": true,
   "projectFilePath": "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\WebApplicationEF\\WebApplicationEF.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

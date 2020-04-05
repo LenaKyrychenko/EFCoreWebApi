@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0BiW4uINTy7wYHmBvmnWEe4+F9oLVTvoBktMYu8JOXcTMnPpiE+ZUA59wck3aGOz+oL/rUPKXnLb52mO+xDCpQ==",
+  "dgSpecHash": "48pIzWiq9oF2ZzsGfWSHfCAKwU+Uh/aArqu/sdG4IpBZpiYkCKBE2a7g3vImIOWcK9cNcliTwiWqF4Q+jlzzEg==",
   "success": true,
-  "projectFilePath": "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\ClassLibrary1\\ClassLibrary1.csproj",
+  "projectFilePath": "D:\\ООП\\WindowsForm\\EntityFramework\\WebApplicationEF\\ClassLibrary1\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

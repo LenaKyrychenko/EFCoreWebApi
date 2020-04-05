@@ -4,9 +4,8 @@ using System.Text;
 
 namespace ClassLibrary1.Entities
 {
-    public class User
+    public class User : BaseEntity
     {
-        public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public string Surname { get; set; }

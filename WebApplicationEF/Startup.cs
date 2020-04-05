@@ -35,11 +35,13 @@ namespace WebApplicationEF
             services.AddControllers();
             #region  repositories
             services.AddTransient<IReservationRepository, ReservationRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
             #endregion
 
             #region  services
 
             services.AddTransient<IReservationService, ReservationService>();
+            services.AddTransient<IUserService, UserServices>();
 
             #endregion
 

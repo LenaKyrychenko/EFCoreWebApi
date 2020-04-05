@@ -4,9 +4,8 @@ using System.Text;
 
 namespace ClassLibrary1.Entities
 {
-    public class TypesOfTour
+    public class TypesOfTour : BaseEntity
     {
-        public int Id { get; set; }
         public string TypeOfTour { get; set; }
 
         public ICollection<Tour> Tours { get; set; }

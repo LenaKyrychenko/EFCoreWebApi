@@ -8,5 +8,6 @@ namespace ClassLibrary1.Interfaces
     public interface IUnitOfWork
     {
         IReservationRepository ReservationRepository { get; }
+        IUserRepository UserRepository { get; }
     }
 }

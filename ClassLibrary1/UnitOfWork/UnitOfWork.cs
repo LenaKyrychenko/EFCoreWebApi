@@ -9,15 +9,26 @@ namespace ClassLibrary1.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         private readonly IReservationRepository reservationRepository;
-        public UnitOfWork(IReservationRepository reservationRepository)
+        private readonly IUserRepository userRepository;
+        public UnitOfWork(IReservationRepository reservationRepository,
+            IUserRepository userRepository)
         {
             this.reservationRepository = reservationRepository;
+            this.userRepository = userRepository;
         }
         public IReservationRepository ReservationRepository
         {
             get
             {
                 return reservationRepository;
+            }
+        }
+
+        public IUserRepository UserRepository
+        {
+            get
+            {
+                return userRepository;
             }
         }
     }

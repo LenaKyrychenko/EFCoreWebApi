@@ -38,9 +38,9 @@ namespace WebApplicationEF.Controllers
 
         [Route("Reservation")]
         [HttpPost]
-        public void Post([FromBody]Reservation order)
+        public void Post([FromBody]Reservation reservation)
         {
-            _ReservationService.Add(order);
+            _ReservationService.Add(reservation);
         }
 
         [Route("Reservation/{Id}")]

@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1.Services
 {
-    public class UserServices : IUserService
+    public class UserService : IUserService
     {
         IUnitOfWork unitOfWork;
-        public UserServices(IUnitOfWork unitOfWork)
+        public UserService(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }

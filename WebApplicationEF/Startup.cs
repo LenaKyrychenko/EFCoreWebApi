@@ -36,12 +36,16 @@ namespace WebApplicationEF
             #region  repositories
             services.AddTransient<IReservationRepository, ReservationRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<ITypesOfTourRepository, TypesOfTourRepository>();
+            services.AddTransient<ITypesOfTransportRepository, TypesOfTransportRepository>();
             #endregion
 
             #region  services
 
             services.AddTransient<IReservationService, ReservationService>();
-            services.AddTransient<IUserService, UserServices>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<ITypesOfTourService, TypesOfTourService>();
+            services.AddTransient<ITypesOfTransportService, TypesOfTransportService>();
 
             #endregion
 

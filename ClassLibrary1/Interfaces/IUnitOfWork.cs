@@ -9,5 +9,7 @@ namespace ClassLibrary1.Interfaces
     {
         IReservationRepository ReservationRepository { get; }
         IUserRepository UserRepository { get; }
+        ITypesOfTourRepository TypesOfTourRepository { get; }
+        ITypesOfTransportRepository TypesOfTransportRepository { get; }
     }
 }

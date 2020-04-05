@@ -15,9 +15,9 @@ namespace WebApplicationEF.Controllers
         #endregion
 
         #region Constructors
-        public UserController(IUserService sqlOrderService)
+        public UserController(IUserService sqlUserService)
         {
-            _UserService = sqlOrderService;
+            _UserService = sqlUserService;
         }
         #endregion
 

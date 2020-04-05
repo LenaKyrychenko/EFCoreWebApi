@@ -15,9 +15,9 @@ namespace WebApplicationEF.Controllers
         #endregion
 
         #region Constructors
-        public ReservationController(IReservationService sqlOrderService)
+        public ReservationController(IReservationService sqlReservationService)
         {
-            _ReservationService = sqlOrderService;
+            _ReservationService = sqlReservationService;
         }
         #endregion
 

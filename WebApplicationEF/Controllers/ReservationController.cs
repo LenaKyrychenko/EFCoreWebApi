@@ -31,7 +31,7 @@ namespace WebApplicationEF.Controllers
 
         [Route("Reservation/{Id}")]
         [HttpGet]
-        public Reservation Get(int Id)
+        public Task<Reservation> Get(int Id)
         {
             return _ReservationService.GetById(Id);
         }

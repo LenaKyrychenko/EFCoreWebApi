@@ -4,6 +4,7 @@ using ClassLibrary1.Interfaces.IServices;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ClassLibrary1.Services
 {
@@ -30,7 +31,7 @@ namespace ClassLibrary1.Services
             return unitOfWork.ReservationRepository.GetAll();
         }
 
-        public Reservation GetById(int id)
+        public Task<Reservation> GetById(int id)
         {
             return unitOfWork.ReservationRepository.GetById(id);
         }

@@ -8,6 +8,7 @@ using ClassLibrary1.Interfaces.IServices;
 using ClassLibrary1.Repositories;
 using ClassLibrary1.Services;
 using ClassLibrary1.UnitOfWork;
+using ClassLibrary2;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -43,6 +44,7 @@ namespace WebApplicationEF
             #endregion
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<ApplicationContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

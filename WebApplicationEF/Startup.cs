@@ -18,6 +18,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using AutoMapper;
+using DAL.Interfaces.IRepositories;
+using DAL.Repositories;
+using BLL.Interfaces.IServices;
+using BLL.Services;
 
 namespace WebApplicationEF
 {
@@ -41,6 +45,7 @@ namespace WebApplicationEF
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<ITypesOfTourRepository, TypesOfTourRepository>();
             services.AddTransient<ITypesOfTransportRepository, TypesOfTransportRepository>();
+            services.AddTransient<ITourRepository, TourRepository>();
             #endregion
 
             #region  services
@@ -49,6 +54,7 @@ namespace WebApplicationEF
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ITypesOfTourService, TypesOfTourService>();
             services.AddTransient<ITypesOfTransportService, TypesOfTransportService>();
+            services.AddTransient<ITourService, TourService>();
 
             #endregion
 

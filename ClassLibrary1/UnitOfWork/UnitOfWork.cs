@@ -1,5 +1,6 @@
 ﻿using ClassLibrary1.Interfaces;
 using ClassLibrary1.Interfaces.IRepositories;
+using DAL.Interfaces.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,15 +13,18 @@ namespace ClassLibrary1.UnitOfWork
         private readonly IUserRepository userRepository;
         private readonly ITypesOfTourRepository typesOfTourRepository;
         private readonly ITypesOfTransportRepository typesOfTransportRepository;
+        private readonly ITourRepository tourRepository;
         public UnitOfWork(IReservationRepository reservationRepository,
             IUserRepository userRepository,
             ITypesOfTourRepository typesOfTourRepository,
-            ITypesOfTransportRepository typesOfTransportRepository)
+            ITypesOfTransportRepository typesOfTransportRepository,
+            ITourRepository tourRepository)
         {
             this.reservationRepository = reservationRepository;
             this.userRepository = userRepository;
             this.typesOfTourRepository = typesOfTourRepository;
             this.typesOfTransportRepository = typesOfTransportRepository;
+            this.tourRepository = tourRepository;
         }
         public IReservationRepository ReservationRepository
         {
@@ -51,6 +55,14 @@ namespace ClassLibrary1.UnitOfWork
             get
             {
                 return typesOfTransportRepository;
+            }
+        }
+
+        public ITourRepository TourRepository
+        {
+            get
+            {
+                return tourRepository;
             }
         }
     }

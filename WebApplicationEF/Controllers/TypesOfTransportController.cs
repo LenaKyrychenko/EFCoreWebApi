@@ -1,4 +1,6 @@
-﻿using ClassLibrary1.Entities;
+﻿using AutoMapper;
+using BLL.DTO;
+using ClassLibrary1.Entities;
 using ClassLibrary1.Interfaces.IServices;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,28 +14,39 @@ namespace WebApplicationEF.Controllers
     {
         #region Propertirs
         ITypesOfTransportService _TypesOfTransportService;
+        private readonly IMapper _mapper;
         #endregion
 
         #region Constructors
-        public TypesOfTransportController(ITypesOfTransportService sqlTypesOfTransportService)
+        public TypesOfTransportController(ITypesOfTransportService sqlTypesOfTransportService, IMapper mapper)
         {
             _TypesOfTransportService = sqlTypesOfTransportService;
+            _mapper = mapper;
         }
         #endregion
 
         #region APIs
         [Route("TypesOfTransport")]
         [HttpGet]
-        public IEnumerable<TypesOfTransport> Get()
+        public IEnumerable<TypesOfTransportDTO> Get()
         {
-            return _TypesOfTransportService.GetAll();
+            var models = _TypesOfTransportService.GetAll().ToList();
+            /*var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
+            var mapper = new Mapper(config);*/
+
+            return _mapper.Map<List<TypesOfTransport>, List<TypesOfTransportDTO>>(models);
         }
 
         [Route("TypesOfTransport/{Id}")]
         [HttpGet]
-        public Task<TypesOfTransport> Get(int Id)
+        public TypesOfTransportDTO Get(int Id)
         {
-            return _TypesOfTransportService.GetById(Id);
+            var models = _TypesOfTransportService.GetById(Id);
+            TypesOfTransport typesOfTransport = models.Result;
+            /*var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
+            var mapper = new Mapper(config);*/
+
+            return _mapper.Map<TypesOfTransport, TypesOfTransportDTO>(typesOfTransport);
         }
 
         [Route("TypesOfTransport")]

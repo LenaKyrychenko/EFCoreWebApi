@@ -1,4 +1,6 @@
-﻿using ClassLibrary1.Entities;
+﻿using AutoMapper;
+using BLL.DTO;
+using ClassLibrary1.Entities;
 using ClassLibrary1.Interfaces.IServices;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,28 +14,35 @@ namespace WebApplicationEF.Controllers
     {
         #region Propertirs
         IReservationService _ReservationService;
+        private readonly IMapper _mapper;
         #endregion
 
         #region Constructors
-        public ReservationController(IReservationService sqlReservationService)
+        public ReservationController(IReservationService sqlReservationService, IMapper mapper)
         {
             _ReservationService = sqlReservationService;
+            _mapper = mapper;
         }
         #endregion
 
         #region APIs
         [Route("REservation")]
         [HttpGet]
-        public IEnumerable<Reservation> Get()
+        public IEnumerable<ReservationDTO> Get()
         {
-            return _ReservationService.GetAll();
+            var models = _ReservationService.GetAll().ToList();
+
+            return _mapper.Map<List<Reservation>, List<ReservationDTO>>(models);
         }
 
         [Route("Reservation/{Id}")]
         [HttpGet]
-        public Task<Reservation> Get(int Id)
+        public ReservationDTO Get(int Id)
         {
-            return _ReservationService.GetById(Id);
+            var models = _ReservationService.GetById(Id);
+            Reservation reservation = models.Result;
+
+            return _mapper.Map<Reservation, ReservationDTO>(reservation);
         }
 
         [Route("Reservation")]

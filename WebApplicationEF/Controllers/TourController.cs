@@ -1,4 +1,6 @@
-﻿using BLL.Interfaces.IServices;
+﻿using AutoMapper;
+using BLL.DTO;
+using BLL.Interfaces.IServices;
 using ClassLibrary1.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,28 +14,35 @@ namespace WebApplicationEF.Controllers
     {
         #region Propertirs
         ITourService _TourService;
+        private readonly IMapper _mapper;
         #endregion
 
         #region Constructors
-        public TourController(ITourService sqlTourService)
+        public TourController(ITourService sqlTourService, IMapper mapper)
         {
             _TourService = sqlTourService;
+            _mapper = mapper;
         }
         #endregion
 
         #region APIs
         [Route("Tour")]
         [HttpGet]
-        public IEnumerable<Tour> Get()
+        public IEnumerable<TourDTO> Get()
         {
-            return _TourService.GetAll();
+            var models = _TourService.GetAll().ToList();
+
+            return _mapper.Map<List<Tour>, List<TourDTO>>(models);
         }
 
         [Route("Tour/{Id}")]
         [HttpGet]
-        public Task<Tour> Get(int Id)
+        public TourDTO Get(int Id)
         {
-            return _TourService.GetById(Id);
+            var models = _TourService.GetById(Id);
+            Tour tour = models.Result;
+
+            return _mapper.Map<Tour, TourDTO>(tour);
         }
 
         [Route("Tour")]

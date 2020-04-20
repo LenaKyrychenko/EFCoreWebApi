@@ -14,12 +14,14 @@ namespace WebApplicationEF.Controllers
     {
         #region Propertirs
         IUserService _UserService;
+        private readonly IMapper _mapper;
         #endregion
 
         #region Constructors
-        public UserController(IUserService sqlUserService)
+        public UserController(IUserService sqlUserService, IMapper mapper)
         {
             _UserService = sqlUserService;
+            _mapper = mapper;
         }
         #endregion
 
@@ -29,17 +31,22 @@ namespace WebApplicationEF.Controllers
         public IEnumerable<UserDTO> Get()
         {
             var models = _UserService.GetAll().ToList();
-            var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
-            var mapper = new Mapper(config);
+            /*var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
+            var mapper = new Mapper(config);*/
 
-            return mapper.Map<List<User>, List<UserDTO>>(models);
+            return _mapper.Map<List<User>, List<UserDTO>>(models);
         }
 
         [Route("User/{Id}")]
         [HttpGet]
-        public Task<User> Get(int Id)
+        public UserDTO Get(int Id)
         {
-            return _UserService.GetById(Id);
+            var models = _UserService.GetById(Id);
+            User user = models.Result;
+            /*var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
+            var mapper = new Mapper(config);*/
+
+            return _mapper.Map<User, UserDTO>(user);
         }
 
         [Route("User")]

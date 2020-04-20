@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BLL.DTO
 {
-    public class TyresOfTourDTO
+    public class TypesOfTourDTO
     {
         public string TypeOfTour { get; set; }
     }

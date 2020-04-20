@@ -22,6 +22,7 @@ using DAL.Interfaces.IRepositories;
 using DAL.Repositories;
 using BLL.Interfaces.IServices;
 using BLL.Services;
+using BLL.Mapping;
 
 namespace WebApplicationEF
 {
@@ -38,7 +39,11 @@ namespace WebApplicationEF
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(UserMap));
+            services.AddAutoMapper(typeof(TypesOfTourMap));
+            services.AddAutoMapper(typeof(TypesOfTransportMap));
+            services.AddAutoMapper(typeof(TourMap));
+            services.AddAutoMapper(typeof(ReservationMap));
             services.AddControllersWithViews();
             #region  repositories
             services.AddTransient<IReservationRepository, ReservationRepository>();

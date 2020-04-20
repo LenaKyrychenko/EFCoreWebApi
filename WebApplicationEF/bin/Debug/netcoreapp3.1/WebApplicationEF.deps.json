@@ -1229,6 +1229,7 @@
       },
       "BLL/1.0.0": {
         "dependencies": {
+          "AutoMapper": "9.0.0",
           "DAL": "1.0.0"
         },
         "runtime": {

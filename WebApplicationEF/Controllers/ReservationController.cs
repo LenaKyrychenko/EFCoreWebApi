@@ -26,23 +26,32 @@ namespace WebApplicationEF.Controllers
         #endregion
 
         #region APIs
-        [Route("REservation")]
+        [Route("Reservation")]
         [HttpGet]
-        public IEnumerable<ReservationDTO> Get()
+        public IActionResult Get()
         {
             var models = _ReservationService.GetAll().ToList();
+            var list = _mapper.Map<List<Reservation>, List<ReservationDTO>>(models);
 
-            return _mapper.Map<List<Reservation>, List<ReservationDTO>>(models);
+            if (list == null)
+                return NotFound("Information not found");
+            else
+                return Ok(list);
         }
 
         [Route("Reservation/{Id}")]
         [HttpGet]
-        public ReservationDTO Get(int Id)
+        public IActionResult Get(int Id)
         {
             var models = _ReservationService.GetById(Id);
             Reservation reservation = models.Result;
 
-            return _mapper.Map<Reservation, ReservationDTO>(reservation);
+            var list = _mapper.Map<Reservation, ReservationDTO>(reservation);
+
+            if (list == null)
+                return NotFound("Information not found");
+            else
+                return Ok(list);
         }
 
         [Route("Reservation")]

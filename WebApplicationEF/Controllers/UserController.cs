@@ -28,25 +28,33 @@ namespace WebApplicationEF.Controllers
         #region APIs
         [Route("User")]
         [HttpGet]
-        public IEnumerable<UserDTO> Get()
+        public IActionResult Get()
         {
             var models = _UserService.GetAll().ToList();
             /*var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
             var mapper = new Mapper(config);*/
 
-            return _mapper.Map<List<User>, List<UserDTO>>(models);
+            var list = _mapper.Map<List<User>, List<UserDTO>>(models);
+
+            if (list == null)
+                return NotFound("Information not found");
+            else
+                return Ok(list);
         }
 
         [Route("User/{Id}")]
         [HttpGet]
-        public UserDTO Get(int Id)
+        public IActionResult Get(int Id)
         {
             var models = _UserService.GetById(Id);
             User user = models.Result;
-            /*var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
-            var mapper = new Mapper(config);*/
 
-            return _mapper.Map<User, UserDTO>(user);
+            var list = _mapper.Map<User, UserDTO>(user);
+
+            if (list == null)
+                return NotFound("Information not found");
+            else
+                return Ok(list);
         }
 
         [Route("User")]

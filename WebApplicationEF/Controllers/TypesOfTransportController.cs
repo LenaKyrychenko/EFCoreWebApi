@@ -28,25 +28,30 @@ namespace WebApplicationEF.Controllers
         #region APIs
         [Route("TypesOfTransport")]
         [HttpGet]
-        public IEnumerable<TypesOfTransportDTO> Get()
+        public IActionResult Get()
         {
             var models = _TypesOfTransportService.GetAll().ToList();
-            /*var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
-            var mapper = new Mapper(config);*/
+            var list = _mapper.Map<List<TypesOfTransport>, List<TypesOfTransportDTO>>(models);
 
-            return _mapper.Map<List<TypesOfTransport>, List<TypesOfTransportDTO>>(models);
+            if (list == null)
+                return NotFound("Information not found");
+            else
+                return Ok(list);
         }
 
         [Route("TypesOfTransport/{Id}")]
         [HttpGet]
-        public TypesOfTransportDTO Get(int Id)
+        public IActionResult Get(int Id)
         {
             var models = _TypesOfTransportService.GetById(Id);
             TypesOfTransport typesOfTransport = models.Result;
-            /*var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
-            var mapper = new Mapper(config);*/
 
-            return _mapper.Map<TypesOfTransport, TypesOfTransportDTO>(typesOfTransport);
+            var list = _mapper.Map<TypesOfTransport, TypesOfTransportDTO>(typesOfTransport);
+
+            if (list == null)
+                return NotFound("Information not found");
+            else
+                return Ok(list);
         }
 
         [Route("TypesOfTransport")]

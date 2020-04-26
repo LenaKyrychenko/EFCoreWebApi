@@ -10,18 +10,15 @@ namespace ClassLibrary1.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         private readonly IReservationRepository reservationRepository;
-        private readonly IUserRepository userRepository;
         private readonly ITypesOfTourRepository typesOfTourRepository;
         private readonly ITypesOfTransportRepository typesOfTransportRepository;
         private readonly ITourRepository tourRepository;
         public UnitOfWork(IReservationRepository reservationRepository,
-            IUserRepository userRepository,
             ITypesOfTourRepository typesOfTourRepository,
             ITypesOfTransportRepository typesOfTransportRepository,
             ITourRepository tourRepository)
         {
             this.reservationRepository = reservationRepository;
-            this.userRepository = userRepository;
             this.typesOfTourRepository = typesOfTourRepository;
             this.typesOfTransportRepository = typesOfTransportRepository;
             this.tourRepository = tourRepository;
@@ -31,14 +28,6 @@ namespace ClassLibrary1.UnitOfWork
             get
             {
                 return reservationRepository;
-            }
-        }
-
-        public IUserRepository UserRepository
-        {
-            get
-            {
-                return userRepository;
             }
         }
 

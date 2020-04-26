@@ -9,7 +9,6 @@ namespace ClassLibrary1.Interfaces
     public interface IUnitOfWork
     {
         IReservationRepository ReservationRepository { get; }
-        IUserRepository UserRepository { get; }
         ITypesOfTourRepository TypesOfTourRepository { get; }
         ITypesOfTransportRepository TypesOfTransportRepository { get; }
         ITourRepository TourRepository { get; }

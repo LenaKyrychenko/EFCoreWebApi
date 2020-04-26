@@ -16,29 +16,6 @@ namespace ClassLibrary1.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public void Add(User obj)
-        {
-            unitOfWork.UserRepository.Add(obj);
-        }
-
-        public void Delete(int id)
-        {
-            unitOfWork.UserRepository.Delete(id);
-        }
-
-        public IEnumerable<User> GetAll()
-        {
-            return unitOfWork.UserRepository.GetAll();
-        }
-
-        public Task<User> GetById(int id)
-        {
-            return unitOfWork.UserRepository.GetById(id);
-        }
-
-        public void Update(User obj)
-        {
-            unitOfWork.UserRepository.Update(obj);
-        }
+       
     }
 }

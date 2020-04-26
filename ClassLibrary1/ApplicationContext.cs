@@ -1,4 +1,5 @@
 ﻿using ClassLibrary1.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,13 +7,12 @@ using System.Text;
 
 namespace ClassLibrary2
 {
-    public class ApplicationContext:DbContext
+    public class ApplicationContext:IdentityDbContext<User>
     {
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Tour> Tours { get; set; }
         public DbSet<TypesOfTour> TypesOfTours { get; set; }
         public DbSet<TypesOfTransport> TypesOfTransports { get; set; }
-        public DbSet<User> Users { get; set; }
         public ApplicationContext()
         {
             Database.EnsureCreated();
@@ -44,6 +44,7 @@ namespace ClassLibrary2
                 .HasOne(p => p.TypesOfTransport)
                 .WithMany(t => t.Tours)
                 .HasForeignKey(p => p.TypeOfTransportId);*/
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

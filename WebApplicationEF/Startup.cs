@@ -23,6 +23,8 @@ using DAL.Repositories;
 using BLL.Interfaces.IServices;
 using BLL.Services;
 using BLL.Mapping;
+using ClassLibrary1.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace WebApplicationEF
 {
@@ -47,8 +49,8 @@ namespace WebApplicationEF
             services.AddControllersWithViews();
             #region  repositories
             services.AddTransient<IReservationRepository, ReservationRepository>();
-            services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<ITypesOfTourRepository, TypesOfTourRepository>();
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>();
             services.AddTransient<ITypesOfTransportRepository, TypesOfTransportRepository>();
             services.AddTransient<ITourRepository, TourRepository>();
             #endregion
@@ -79,6 +81,7 @@ namespace WebApplicationEF
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

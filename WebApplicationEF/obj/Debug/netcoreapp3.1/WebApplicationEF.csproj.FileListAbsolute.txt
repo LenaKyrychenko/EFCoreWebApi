@@ -162,3 +162,8 @@ D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplicationEF\bin\Debu
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplicationEF\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplicationEF\obj\Debug\netcoreapp3.1\WebApplicationEF.csproj.CoreCompileInputs.cache
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplicationEF\obj\Debug\netcoreapp3.1\WebApplicationEF.MvcApplicationPartsAssemblyInfo.cache
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplicationEF\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplicationEF\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplicationEF\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplicationEF\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplicationEF\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll

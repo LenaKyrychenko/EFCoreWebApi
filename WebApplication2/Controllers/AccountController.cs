@@ -1,24 +1,19 @@
-﻿using BLL.DTO;
-using ClassLibrary1;
-using ClassLibrary1.Entities;
-using ClassLibrary1.Interfaces.IServices;
-using Microsoft.AspNetCore.Identity;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using ClassLibrary1.Entities;
+using WebApplication2.ViewModels;
 
-namespace WebApplication.Controllers
+namespace CustomIdentityApp.Controllers
 {
     public class AccountController : Controller
     {
-        IUserService _userService;
+        private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
 
-        public AccountController(IUserService userService, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
-            _userService = userService;
+            _userManager = userManager;
             _signInManager = signInManager;
         }
         [HttpGet]
@@ -27,67 +22,28 @@ namespace WebApplication.Controllers
             return View();
         }
         [HttpPost]
-        /*public IActionResult Register(RegisterViewModel model)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                UserDTO user = new UserDTO
+                User user = new User { Email = model.Email, UserName = model.Email };
+                // добавляем пользователя
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
                 {
-                    Name = model.Name,
-                    Password = model.Password
-                };
-
-                var result = _userService.CreateAsync(user);
-                if (result.Result.Success)
-                {
-                    //await _signInManager.SignInAsync(user, false);
-                    return Ok(result.Result.Message);
-                }
-                else
-                {
-                    return NotFound(result.Result.Message);
-                }
-            }
-            return View(model);
-        }*/
-
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-        /*[HttpPost]
-        [ValidateAntiForgeryToken]*/
-        /*public IActionResult Login(LoginViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                UserDTO userDTO = new UserDTO()
-                {
-                    Password = model.Password
-                };
-                var result = _userService.SignInAsync(userDTO);
-
-                if (result.Result.Success)
-                {
+                    // установка куки
+                    await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "Home");
-                    //return Ok(result.Result.Message);
                 }
                 else
                 {
-                    return NotFound(result.Result.Message);
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
                 }
             }
             return View(model);
-        }*/
-
-        /*[HttpPost]*/
-        /*[ValidateAntiForgeryToken]
-        public IActionResult Logout()
-        {
-            _userService.Logout();
-            return RedirectToAction("Index", "Home");
-        }*/
+        }
     }
 }

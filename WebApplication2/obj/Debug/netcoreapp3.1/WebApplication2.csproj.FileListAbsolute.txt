@@ -1,3 +1,10 @@
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.csprojAssemblyReference.cache
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.csproj.CoreCompileInputs.cache
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.MvcApplicationPartsAssemblyInfo.cache
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.RazorAssemblyInfo.cache
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.RazorAssemblyInfo.cs
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.AssemblyInfoInputs.cache
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.AssemblyInfo.cs
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\appsettings.json
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -42,11 +49,6 @@ D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\DAL.dll
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\BLL.pdb
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\DAL.pdb
-D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.csprojAssemblyReference.cache
-D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.RazorAssemblyInfo.cache
-D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.RazorAssemblyInfo.cs
-D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.AssemblyInfoInputs.cache
-D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.AssemblyInfo.cs
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.TagHelpers.input.cache
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.TagHelpers.output.cache
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.RazorCoreGenerate.cache
@@ -74,6 +76,3 @@ D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.dll
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.pdb
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.genruntimeconfig.cache
-D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.csproj.CoreCompileInputs.cache
-D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.MvcApplicationPartsAssemblyInfo.cache

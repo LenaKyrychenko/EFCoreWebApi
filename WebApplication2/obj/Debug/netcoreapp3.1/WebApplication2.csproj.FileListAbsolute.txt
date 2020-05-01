@@ -150,3 +150,4 @@ D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.csproj.CoreCompileInputs.cache
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.MvcApplicationPartsAssemblyInfo.cache
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs

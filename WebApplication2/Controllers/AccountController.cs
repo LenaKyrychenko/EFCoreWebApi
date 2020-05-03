@@ -3,17 +3,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using ClassLibrary1.Entities;
 using WebApplication2.ViewModels;
+using ClassLibrary1.Interfaces.IServices;
+using BLL.DTO;
 
 namespace CustomIdentityApp.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<User> _userManager;
+        private readonly IUserService _userService;
         private readonly SignInManager<User> _signInManager;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(IUserService userService, SignInManager<User> signInManager)
         {
-            _userManager = userManager;
+            _userService = userService;
             _signInManager = signInManager;
         }
         [HttpGet]
@@ -26,21 +28,20 @@ namespace CustomIdentityApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email };
-                // добавляем пользователя
-                var result = await _userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                UserDTO userDTO = new UserDTO()
                 {
-                    // установка куки
-                    await _signInManager.SignInAsync(user, false);
+                    Password = model.Password,
+                    Email = model.Email,
+                    Name = model.Email
+                };
+               var result = await _userService.CreateAsync(userDTO);
+                if (result.Success)
+                {
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError(string.Empty, error.Description);
-                    }
+                    return NotFound(result.Message);
                 }
             }
             return View(model);

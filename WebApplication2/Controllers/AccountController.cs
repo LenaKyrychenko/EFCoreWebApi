@@ -11,12 +11,10 @@ namespace CustomIdentityApp.Controllers
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
-        private readonly SignInManager<User> _signInManager;
 
-        public AccountController(IUserService userService, SignInManager<User> signInManager)
+        public AccountController(IUserService userService)
         {
             _userService = userService;
-            _signInManager = signInManager;
         }
         [HttpGet]
         public IActionResult Register()
@@ -59,23 +57,19 @@ namespace CustomIdentityApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result =
-                    await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
-                if (result.Succeeded)
+                UserDTO userDTO = new UserDTO()
                 {
-                    // проверяем, принадлежит ли URL приложению
-                    if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
-                    {
-                        return Redirect(model.ReturnUrl);
-                    }
-                    else
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
+                    Email = model.Email,
+                    Password = model.Password
+                };
+                var result = _userService.SignInAsync(userDTO);
+                if (result.Result.Success)
+                {
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Неправильный логин и (или) пароль");
+                    return NotFound(result.Result.Message);
                 }
             }
             return View(model);
@@ -86,7 +80,7 @@ namespace CustomIdentityApp.Controllers
         public async Task<IActionResult> Logout()
         {
             // удаляем аутентификационные куки
-            await _signInManager.SignOutAsync();
+            _userService.Logout();
             return RedirectToAction("Index", "Home");
         }
     }

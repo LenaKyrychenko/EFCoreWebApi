@@ -15,5 +15,6 @@ namespace ClassLibrary1.Interfaces
         ITypesOfTransportRepository TypesOfTransportRepository { get; }
         ITourRepository TourRepository { get; }
         UserManager<User> UserManager { get; }
+        SignInManager<User> SignInManager { get; }
     }
 }

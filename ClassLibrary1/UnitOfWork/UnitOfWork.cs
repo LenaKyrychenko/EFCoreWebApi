@@ -16,17 +16,20 @@ namespace ClassLibrary1.UnitOfWork
         private readonly ITypesOfTransportRepository typesOfTransportRepository;
         private readonly ITourRepository tourRepository;
         public UserManager<User> UserManager { get; private set; }
+        public SignInManager<User> SignInManager { get; private set; }
         public UnitOfWork(IReservationRepository reservationRepository,
             ITypesOfTourRepository typesOfTourRepository,
             ITypesOfTransportRepository typesOfTransportRepository,
             ITourRepository tourRepository,
-            UserManager<User> userManager)
+            UserManager<User> userManager,
+            SignInManager<User> signInManager)
         {
             this.reservationRepository = reservationRepository;
             this.typesOfTourRepository = typesOfTourRepository;
             this.typesOfTransportRepository = typesOfTransportRepository;
             this.tourRepository = tourRepository;
             this.UserManager = userManager;
+            this.SignInManager = signInManager;
         }
         public IReservationRepository ReservationRepository
         {

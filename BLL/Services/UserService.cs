@@ -53,6 +53,37 @@ namespace ClassLibrary1.Services
             
         }
 
+        public void Logout()
+        {
+            unitOfWork.SignInManager.SignOutAsync();
+        }
 
+        public async Task<Details> SignInAsync(UserDTO userDTO)
+        {
+            string message;
+            bool success;
+            User user = await unitOfWork.UserManager.FindByEmailAsync(userDTO.Email);
+            if (user != null)
+            {
+                var result = await unitOfWork.SignInManager.PasswordSignInAsync(user,userDTO.Password, false, false);
+                if (result.Succeeded)
+                {
+                    message = "Ви успішно авторизовані!";
+                    success = true;
+                }
+                else
+                {
+                    message = "Помилка!";
+                    success = false;
+                }
+            }
+            else
+            {
+                message = "Error!";
+                success = false;
+            }
+
+            return new Details(success, message);
+        }
     }
 }

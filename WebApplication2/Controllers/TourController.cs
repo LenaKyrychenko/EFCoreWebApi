@@ -2,6 +2,7 @@
 using BLL.DTO;
 using BLL.Interfaces.IServices;
 using ClassLibrary1.Entities;
+using DAL;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -28,9 +29,9 @@ namespace WebApplicationEF.Controllers
         #region APIs
         [Route("Tour")]
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get([FromQuery] PagingParameters pagingParameters)
         {
-            var models = _TourService.GetAll().ToList();
+            var models = _TourService.GetAll(pagingParameters).ToList();
 
             var list = _mapper.Map<List<Tour>, List<TourDTO>>(models);
 

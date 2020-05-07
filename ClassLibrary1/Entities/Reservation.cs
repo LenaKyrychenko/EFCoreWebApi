@@ -8,7 +8,7 @@ namespace ClassLibrary1.Entities
     {
         
         public string TourId { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public int NumberOfPeople { get; set; }
         public double Sum { get; set; }
 

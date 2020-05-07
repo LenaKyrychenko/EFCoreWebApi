@@ -8,5 +8,6 @@ namespace DAL.Interfaces.IRepositories
 {
     public interface ITourRepository : IGenericRepository<Tour>
     {
+        IEnumerable<Tour> GetTours(PagingParameters pagingParameters);
     }
 }

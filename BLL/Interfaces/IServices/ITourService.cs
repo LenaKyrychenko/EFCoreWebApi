@@ -1,4 +1,5 @@
 ﻿using ClassLibrary1.Entities;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,7 @@ namespace BLL.Interfaces.IServices
 {
     public interface ITourService
     {
-        IEnumerable<Tour> GetAll();
+        IEnumerable<Tour> GetAll(PagingParameters pagingParameters);
         Task<Tour> GetById(int id);
         void Add(Tour obj);
         void Update(Tour obj);

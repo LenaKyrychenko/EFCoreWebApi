@@ -4,6 +4,7 @@ using ClassLibrary2;
 using DAL.Interfaces.IRepositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DAL.Repositories
@@ -13,6 +14,14 @@ namespace DAL.Repositories
         public TourRepository(ApplicationContext context) : base(context)
         {
 
+        }
+
+        public IEnumerable<Tour> GetTours(PagingParameters pagingParameters)
+        {
+            return GetAll()
+            .Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
+            .Take(pagingParameters.PageSize)
+            .ToList();
         }
     }
 }

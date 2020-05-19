@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 
 namespace WebApplicationEF.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class TourController : ControllerBase
     {
         #region Propertirs
@@ -27,13 +29,12 @@ namespace WebApplicationEF.Controllers
         #endregion
 
         #region APIs
-        [Route("Tour")]
+        //[Route("Tour")]
         [HttpGet]
-        public IActionResult Get([FromQuery] PagingParameters pagingParameters)
+        public ActionResult<List<TourDTO>> Get([FromQuery] PagingParameters pagingParameters)
         {
-            var models = _TourService.GetAll(pagingParameters).ToList();
+            var list = _TourService.GetAll(pagingParameters).ToList();
 
-            var list = _mapper.Map<List<Tour>, List<TourDTO>>(models);
 
             if (list == null)
                 return NotFound("Information not found");

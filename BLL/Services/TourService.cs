@@ -1,4 +1,6 @@
-﻿using BLL.Interfaces.IServices;
+﻿using AutoMapper;
+using BLL.DTO;
+using BLL.Interfaces.IServices;
 using ClassLibrary1.Entities;
 using ClassLibrary1.Interfaces;
 using DAL;
@@ -12,9 +14,11 @@ namespace BLL.Services
     public class TourService : ITourService
     {
         IUnitOfWork unitOfWork;
-        public TourService(IUnitOfWork unitOfWork)
+        IMapper mapper;
+        public TourService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
         }
 
         public void Add(Tour obj)
@@ -27,9 +31,11 @@ namespace BLL.Services
             unitOfWork.TourRepository.Delete(id);
         }
 
-        public IEnumerable<Tour> GetAll(PagingParameters pagingParameters)
+        public IEnumerable<TourDTO> GetAll(PagingParameters pagingParameters)
         {
-            return unitOfWork.TourRepository.GetTours(pagingParameters);
+            var models = unitOfWork.TourRepository.GetTours(pagingParameters);
+            var list = mapper.Map<IEnumerable<Tour>, IEnumerable<TourDTO>>(models);
+            return list;
         }
 
         public Task<Tour> GetById(int id)

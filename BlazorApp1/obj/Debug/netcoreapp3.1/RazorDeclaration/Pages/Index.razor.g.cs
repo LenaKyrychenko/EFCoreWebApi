@@ -76,6 +76,13 @@ using BlazorApp1.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\_Imports.razor"
+using MatBlazor;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {

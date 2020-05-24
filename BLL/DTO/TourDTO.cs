@@ -8,8 +8,11 @@ namespace BLL.DTO
     {
         public string NameTour { get; set; }
         public string Route { get; set; }
+        public string TypeOfTour { get; set; }
         public DateTime DateOfStart { get; set; }
         public DateTime DateOfFinish { get; set; }
+        public string TypeOfTransport { get; set; }
+        
         public double Price { get; set; }
     }
 }

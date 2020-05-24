@@ -21,5 +21,10 @@ namespace DAL
 				_pageSize = (value > maxPageSize) ? maxPageSize : value;
 			}
 		}
+
+		public DateTime? Date { get; set; }
+		public string TypeOfTour { get; set; }
+		public string TypeOfTransport { get; set; }
+		public double Price { get; set; }
 	}
 }

@@ -6,19 +6,39 @@
 
 <h1>Tours</h1>
 
+
+<p>
+    <MatDatePicker @bind-Value="@Date1" Label="Date"></MatDatePicker>
+</p>
+
+<p>
+    <MatSelectItem @bind-Value="@value1" Items="@vlaue1Items" Label="Tour"></MatSelectItem>
+</p>
+
+<p>
+    <MatSelectItem @bind-Value="@typetransport" Items="@typetransportItems" Label="Transport"></MatSelectItem>
+</p>
+
+<p>
+    <MatTextField @bind-Value="@myDoubleValue" Label="Int Field"></MatTextField>
+</p>
+<MatButton Raised="true" OnClick="Filter">Baton</MatButton>
+
 @if (tours == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
-    <table class="table">
+    <table class="tabletour">
         <thead>
             <tr>
-                <th>NameTour</th>
+                <th>Name</th>
                 <th>Route</th>
-                <th>DateOfStart</th>
-                <th>DateOfFinish</th>
+                <th>Type of tour</th>
+                <th>Date of start</th>
+                <th>Date of finish</th>
+                <th>Type of transport</th>
                 <th>Price</th>
             </tr>
         </thead>
@@ -28,19 +48,54 @@ else
                 <tr>
                     <td>@tours.nameTour</td>
                     <td>@tours.route</td>
+                    <td>@tours.typeOfTour</td>
                     <td>@tours.dateOfStart</td>
                     <td>@tours.dateOfFinish</td>
+                    <td>@tours.typeOfTransport</td>
                     <td>@tours.price</td>
                 </tr>
             }
         </tbody>
     </table>
-    <button @onclick="PrevPage">Prev</button>
+    @if (pageNum > 1)
+    {
+        <button name="prev" @onclick="PrevPage">Prev</button>
+
+    }
     <span>@pageNum</span>
     <button @onclick="NextPage">Next</button>
+
 }
 
 @code {
+
+
+    public DateTime? Date1 { get; set; }
+
+    string? value1;
+    string[] vlaue1Items = new[]
+    {
+                "Extreme",
+                "Gastro-tour",
+                "Cruise",
+                "Ski",
+                "Ukraine",
+                "All",
+    };
+
+    string? typetransport;
+    string[] typetransportItems = new[]
+    {
+                "Bus",
+                "Train",
+                "Airplane",
+                "Ship",
+                "All",
+    };
+
+
+    double myDoubleValue;
+
     private List<TourViewModel> tours;
     private int pageNum = 1;
     private int pageSize = 2;
@@ -51,14 +106,30 @@ else
     public async Task NextPage()
     {
         pageNum++;
-        tours = await tourService.GetAll(new PagingParameters { PageNumber = pageNum, PageSize = pageSize });
+        await this.Filter();
     }
     public async Task PrevPage()
     {
         if (pageNum > 1)
         {
             pageNum--;
-            tours = await tourService.GetAll(new PagingParameters { PageNumber = pageNum, PageSize = pageSize });
+            await this.Filter();
         }
+
+
+    }
+
+    public async Task Filter()
+    {
+        PagingParameters paging = new PagingParameters
+        {
+            PageNumber = pageNum,
+            PageSize = pageSize,
+            Date = Date1,
+            TypeOfTour = value1 ?? "All",
+            TypeOfTransport = typetransport ?? "All",
+            Price = myDoubleValue == 0 ? 1000000 : myDoubleValue
+        };
+        tours = await tourService.GetFilter(paging);
     }
 }

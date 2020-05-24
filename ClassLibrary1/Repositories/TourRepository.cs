@@ -23,5 +23,24 @@ namespace DAL.Repositories
             .Take(pagingParameters.PageSize)
             .ToList();
         }
+
+        public IEnumerable<Tour> GetFilter(PagingParameters pagingParameters)
+        {
+            if (pagingParameters.Date != null)
+            {
+                return GetAll().Where(p => p.Price <= pagingParameters.Price)
+                .Where(d => d.DateOfStart >= pagingParameters.Date)
+                .Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
+                .Take(pagingParameters.PageSize)
+                .ToList();
+            }
+            else
+            {
+                return GetAll().Where(p => p.Price <= pagingParameters.Price)
+                .Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
+                .Take(pagingParameters.PageSize)
+                .ToList();
+            }
+        }
     }
 }

@@ -1,11 +1,11 @@
-@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+/*@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');*/
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 a, .btn-link {
-    color: #0366d6;
+    color: #FF7400;
 }
 
 .btn-primary {
@@ -39,7 +39,44 @@ app {
         .main .top-row > a, .main .top-row .btn-link {
             white-space: nowrap;
             margin-left: 1.5rem;
+            text-decoration: none;
         }
+
+    .main .oit {
+        width: 6rem;
+        font-size: 1.1rem;
+        vertical-align: text-top;
+        /*top: -2px;*/
+        position: absolute;
+        margin-left: -1400px;
+        /*border:1px solid black;*/
+    }
+
+.tabletour{
+    width:100%;
+}
+
+    .tabletour th {
+        font-size: 15px;
+        font-weight: normal;
+        background: #FFBA7D;
+        border-top: 4px solid #FFA659;
+        border-bottom: 1px solid #fff;
+        color: #000000;
+        padding: 8px;
+    }
+
+    .tabletour td {
+        background: #FFE298;
+        border-bottom: 1px solid #fff;
+        color: #242424;
+        border-top: 1px solid transparent;
+        padding: 8px;
+    }
+
+    .tabletour tr:hover td {
+        background: #FFE27D;
+    }
 
 .main .top-row a:first-child {
     overflow: hidden;

@@ -42,6 +42,19 @@ namespace WebApplicationEF.Controllers
                 return Ok(list);
         }
 
+        [Route("Filter")]
+        [HttpGet]
+        public ActionResult<List<TourDTO>> GetFilter([FromQuery] PagingParameters pagingParameters)
+        {
+            var list = _TourService.GetFilter(pagingParameters).ToList();
+
+
+            if (list == null)
+                return NotFound("Information not found");
+            else
+                return Ok(list);
+        }
+
         [Route("Tour/{Id}")]
         [HttpGet]
         public IActionResult Get(int Id)

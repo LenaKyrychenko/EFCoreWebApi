@@ -11,6 +11,7 @@ namespace BLL.Interfaces.IServices
     public interface ITourService
     {
         IEnumerable<TourDTO> GetAll(PagingParameters pagingParameters);
+        IEnumerable<TourDTO> GetFilter(PagingParameters pagingParameters);
         Task<Tour> GetById(int id);
         void Add(Tour obj);
         void Update(Tour obj);

@@ -73,6 +73,13 @@ using BlazorApp1.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 10 "D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\_Imports.razor"
+using MatBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\Pages\FetchData.razor"
 using BlazorApp1.Data;
 

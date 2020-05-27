@@ -8,10 +8,12 @@ namespace BLL
     {
         public bool Success { get; set; }
         public string Message { get; set; }
-        public Details(bool success, string message)
+        public string Token { get; set; }
+        public Details(bool success, string message, string token)
         {
             Success = success;
             Message = message;
+            Token = token;
         }
     }
 }

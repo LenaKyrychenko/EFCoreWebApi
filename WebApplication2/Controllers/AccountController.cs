@@ -8,6 +8,8 @@ using BLL.DTO;
 
 namespace CustomIdentityApp.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
@@ -16,11 +18,8 @@ namespace CustomIdentityApp.Controllers
         {
             _userService = userService;
         }
-        [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
+
+        [Route("register")]
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
@@ -45,34 +44,24 @@ namespace CustomIdentityApp.Controllers
             return View(model);
         }
 
-        [HttpGet]
-        public IActionResult Login(string returnUrl = null)
-        {
-            return View(new LoginViewModel { ReturnUrl = returnUrl });
-        }
-
+        [Route("login")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if (ModelState.IsValid)
-            {
                 UserDTO userDTO = new UserDTO()
                 {
                     Email = model.Email,
                     Password = model.Password
                 };
-                var result = _userService.SignInAsync(userDTO);
-                if (result.Result.Success)
+                var result = await _userService.SignInAsync(userDTO);
+                if (result.Success)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return Ok(result);
                 }
                 else
                 {
-                    return NotFound(result.Result.Message);
+                    return BadRequest(result);
                 }
-            }
-            return View(model);
         }
 
         [HttpPost]

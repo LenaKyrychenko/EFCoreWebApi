@@ -147,7 +147,14 @@ D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.csproj.CoreCompileInputs.cache
-D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.MvcApplicationPartsAssemblyInfo.cache
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.csproj.CoreCompileInputs.cache
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.MvcApplicationPartsAssemblyInfo.cache

@@ -180,3 +180,10 @@ D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\obj\Debug\netc
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\obj\Debug\netcoreapp3.1\Razor\Shared\NavMenu.razor.g.cs
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\obj\Debug\netcoreapp3.1\Razor\Shared\SurveyPrompt.razor.g.cs
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\obj\Debug\netcoreapp3.1\Razor\_Imports.razor.g.cs
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll

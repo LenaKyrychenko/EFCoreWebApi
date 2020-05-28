@@ -21,38 +21,24 @@ namespace CustomIdentityApp.Controllers
 
         [Route("register")]
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public async Task<IActionResult> Register([FromBody]UserDTO userDTO)
         {
-            if (ModelState.IsValid)
-            {
-                UserDTO userDTO = new UserDTO()
-                {
-                    Password = model.Password,
-                    Email = model.Email,
-                    Name = model.Email
-                };
                var result = await _userService.CreateAsync(userDTO);
                 if (result.Success)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return Ok(result);
                 }
                 else
                 {
-                    return NotFound(result.Message);
+                    return BadRequest(result);
                 }
-            }
-            return View(model);
+
         }
 
         [Route("login")]
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Login([FromBody]UserDTO userDTO)
         {
-                UserDTO userDTO = new UserDTO()
-                {
-                    Email = model.Email,
-                    Password = model.Password
-                };
                 var result = await _userService.SignInAsync(userDTO);
                 if (result.Success)
                 {

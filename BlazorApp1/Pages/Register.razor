@@ -1,0 +1,48 @@
+﻿@page "/register"
+@using BlazorApp1.Models;
+@using BlazorApp1.Services;
+@inject AccountService accountService;
+@inject NavigationManager NavigationManager;
+<h3>Register</h3>
+
+<EditForm Model="@RegisterViewModel" OnValidSubmit="SignUp">
+    <DataAnnotationsValidator />
+    <p>
+        <MatTextField @bind-Value="@RegisterViewModel.Name" Label="Name"></MatTextField>
+    </p>
+
+    <p>
+        <MatTextField @bind-Value="@RegisterViewModel.Surname" Label="Surname"></MatTextField>
+    </p>
+
+    <p>
+        <MatTextField @bind-Value="@RegisterViewModel.Email" Label="Email"></MatTextField>
+    </p>
+
+    <p>
+        <MatTextField @bind-Value="@RegisterViewModel.Password" Label="Password"></MatTextField>
+    </p>
+
+    <p>
+        <MatTextField @bind-Value="@RegisterViewModel.ConfirmPassword" Label="Confirm Password"></MatTextField>
+    </p>
+
+    <MatButton Raised="true">Sign up</MatButton>
+
+</EditForm>
+
+@code {
+    RegisterViewModel RegisterViewModel { get; set; } = new RegisterViewModel();
+    public async Task SignUp()
+    {
+        var res = await accountService.Register(RegisterViewModel);
+        if (res.Success)
+        {
+            NavigationManager.NavigateTo("/Login");
+        }
+        else
+        {
+            RegisterViewModel = new RegisterViewModel();
+        }
+    }
+}

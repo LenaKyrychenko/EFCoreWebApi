@@ -1,0 +1,40 @@
+﻿@page "/login"
+@using BlazorApp1.Models;
+@using BlazorApp1.Services;
+@inject AccountService accountService;
+@inject NavigationManager NavigationManager;
+
+<h3>Login</h3>
+
+
+
+<EditForm Model="@LoginViewModel" OnValidSubmit="LoginIn">
+    <DataAnnotationsValidator />
+
+    <p>
+        <MatTextField @bind-Value="@LoginViewModel.Email" Label="Email"></MatTextField>
+    </p>
+
+    <p>
+        <MatTextField @bind-Value="@LoginViewModel.Password" Type="password" Label="Password"></MatTextField>
+    </p>
+
+    <MatButton Raised="true">Login</MatButton>
+
+</EditForm>
+
+@code {
+    public LoginViewModel LoginViewModel { get; set; } = new LoginViewModel();
+    public async Task LoginIn()
+    {
+        var res = await accountService.Login(LoginViewModel);
+        if (res)
+        {
+            NavigationManager.NavigateTo("/");
+        }
+        else
+        {
+            LoginViewModel = new LoginViewModel();
+        }
+    }
+}

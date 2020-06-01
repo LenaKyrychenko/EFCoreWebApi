@@ -6,25 +6,31 @@
 <h3>Register</h3>
 
 <EditForm Model="@RegisterViewModel" OnValidSubmit="SignUp">
+    <FluentValidator></FluentValidator>
     <DataAnnotationsValidator />
     <p>
         <MatTextField @bind-Value="@RegisterViewModel.Name" Label="Name"></MatTextField>
+        <ValidationMessage For="@(() => RegisterViewModel.Name)" />
     </p>
 
     <p>
         <MatTextField @bind-Value="@RegisterViewModel.Surname" Label="Surname"></MatTextField>
+        <ValidationMessage For="@(() => RegisterViewModel.Surname)" />
     </p>
 
     <p>
         <MatTextField @bind-Value="@RegisterViewModel.Email" Label="Email"></MatTextField>
+        <ValidationMessage For="@(() => RegisterViewModel.Email)" />
     </p>
 
     <p>
-        <MatTextField @bind-Value="@RegisterViewModel.Password" Label="Password"></MatTextField>
+        <MatTextField @bind-Value="@RegisterViewModel.Password" Type="Password" Label="Password"></MatTextField>
+        <ValidationMessage For="@(() => RegisterViewModel.Password)" />
     </p>
 
     <p>
-        <MatTextField @bind-Value="@RegisterViewModel.ConfirmPassword" Label="Confirm Password"></MatTextField>
+        <MatTextField @bind-Value="@RegisterViewModel.ConfirmPassword" Type="Password" Label="Confirm Password"></MatTextField>
+        <ValidationMessage For="@(() => RegisterViewModel.ConfirmPassword)" />
     </p>
 
     <MatButton Raised="true">Sign up</MatButton>

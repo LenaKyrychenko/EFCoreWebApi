@@ -25,6 +25,8 @@ using BLL.Interfaces.IServices;
 using BLL.Services;
 using ClassLibrary1.Interfaces;
 using ClassLibrary1.UnitOfWork;
+using FluentValidation;
+using BlazorApp1.Validators;
 
 namespace BlazorApp1
 {
@@ -71,6 +73,9 @@ namespace BlazorApp1
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<ApplicationContext>();
+
+            services.AddValidatorsFromAssemblyContaining<RegisterViewModelValidator>();
+            //services.AddValidatorsFromAssemblyContaining<LoginViewModelValidator>();
 
             services.AddHttpClient<Services.TourService>(client =>
             {

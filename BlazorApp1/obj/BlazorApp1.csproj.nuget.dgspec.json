@@ -51,6 +51,18 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Accelist.FluentValidation.Blazor": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[8.6.2, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[8.6.2, )"
+            },
             "MatBlazor": {
               "target": "Package",
               "version": "[2.4.3, )"

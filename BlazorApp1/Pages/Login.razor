@@ -9,14 +9,17 @@
 
 
 <EditForm Model="@LoginViewModel" OnValidSubmit="LoginIn">
+    <FluentValidator></FluentValidator>
     <DataAnnotationsValidator />
 
     <p>
         <MatTextField @bind-Value="@LoginViewModel.Email" Label="Email"></MatTextField>
+        <ValidationMessage For="@(() => LoginViewModel.Email)" />
     </p>
 
     <p>
         <MatTextField @bind-Value="@LoginViewModel.Password" Type="password" Label="Password"></MatTextField>
+        <ValidationMessage For="@(() => LoginViewModel.Password)" />
     </p>
 
     <MatButton Raised="true">Login</MatButton>

@@ -22,7 +22,7 @@ namespace DAL
 			}
 		}
 
-		public DateTime? Date { get; set; }
+		public DateTime Date { get; set; }
 		public string TypeOfTour { get; set; }
 		public string TypeOfTransport { get; set; }
 		public double Price { get; set; }

@@ -27,6 +27,15 @@ namespace BlazorApp1.Services
             return await JsonSerializer.DeserializeAsync<List<TourViewModel>>(responseContent);
         }
 
+        public async Task<TourViewModel> GetById(int id)
+        {
+            var res = await _httpClient.GetAsync($"api/Tour/Tour/{id}");
+            res.EnsureSuccessStatusCode();
+
+            using var responseContent = await res.Content.ReadAsStreamAsync();
+            return await JsonSerializer.DeserializeAsync<TourViewModel>(responseContent);
+        }
+
         public async Task<List<TourViewModel>> GetFilter(PagingParameters p)
         {
             var res = await _httpClient.GetAsync($"api/Tour/Filter?pageNumber={p.PageNumber}&pageSize={p.PageSize}&date={p.Date}&typeOfTour={p.TypeOfTour}&typeOfTransport={p.TypeOfTransport}&price={p.Price}");
@@ -35,5 +44,7 @@ namespace BlazorApp1.Services
             using var responseContent = await res.Content.ReadAsStreamAsync();
             return await JsonSerializer.DeserializeAsync<List<TourViewModel>>(responseContent);
         }
+
+
     }
 }

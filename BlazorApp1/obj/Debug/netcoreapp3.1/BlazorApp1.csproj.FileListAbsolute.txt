@@ -194,3 +194,5 @@ D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\obj\Debug\netc
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\obj\Debug\netcoreapp3.1\Razor\Shared\NavMenu.razor.g.cs
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\obj\Debug\netcoreapp3.1\Razor\Shared\SurveyPrompt.razor.g.cs
 D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\obj\Debug\netcoreapp3.1\Razor\_Imports.razor.g.cs
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\TourOne.razor.g.cs
+D:\ООП\WindowsForm\EntityFramework\WebApplicationEF\BlazorApp1\obj\Debug\netcoreapp3.1\Razor\Pages\TourOne.razor.g.cs

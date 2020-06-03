@@ -6,6 +6,7 @@ namespace BLL.DTO
 {
     public class TourDTO
     {
+        public int Id { get; set; }
         public string NameTour { get; set; }
         public string Route { get; set; }
         public string TypeOfTour { get; set; }

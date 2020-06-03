@@ -39,7 +39,7 @@ else
                 <th>Date of start</th>
                 <th>Date of finish</th>
                 <th>Type of transport</th>
-                <th>Price</th>
+                <th>Price</th> 
             </tr>
         </thead>
         <tbody>
@@ -53,6 +53,7 @@ else
                     <td>@tours.dateOfFinish</td>
                     <td>@tours.typeOfTransport</td>
                     <td>@tours.price</td>
+                    <td><a href="/tourone/@tours.id">More</a></td>
                 </tr>
             }
         </tbody>
@@ -70,7 +71,7 @@ else
 @code {
 
 
-    public DateTime? Date1 { get; set; }
+    public DateTime Date1 { get; set; }
 
     string? value1;
     string[] vlaue1Items = new[]
@@ -96,6 +97,8 @@ else
 
     double myDoubleValue;
 
+    bool click = false;
+
     private List<TourViewModel> tours;
     private int pageNum = 1;
     private int pageSize = 2;
@@ -106,14 +109,28 @@ else
     public async Task NextPage()
     {
         pageNum++;
-        await this.Filter();
+        if (click == true)
+        {
+            await this.Filter();
+        }
+        else
+        {
+            tours = await tourService.GetAll(new PagingParameters { PageNumber = pageNum, PageSize = pageSize });
+        }
     }
     public async Task PrevPage()
     {
         if (pageNum > 1)
         {
             pageNum--;
-            await this.Filter();
+            if (click == true)
+            {
+                await this.Filter();
+            }
+            else
+            {
+                tours = await tourService.GetAll(new PagingParameters { PageNumber = pageNum, PageSize = pageSize });
+            }
         }
 
 
@@ -121,6 +138,7 @@ else
 
     public async Task Filter()
     {
+        click = true;
         PagingParameters paging = new PagingParameters
         {
             PageNumber = pageNum,

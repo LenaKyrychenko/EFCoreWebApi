@@ -29,16 +29,12 @@ namespace DAL.Repositories
             if (pagingParameters.Date != null)
             {
                 return GetAll().Where(p => p.Price <= pagingParameters.Price)
-                .Where(d => d.DateOfStart >= pagingParameters.Date)
-                .Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
-                .Take(pagingParameters.PageSize)
+                .Where(d => pagingParameters.Date==d.DateOfStart)
                 .ToList();
             }
             else
             {
                 return GetAll().Where(p => p.Price <= pagingParameters.Price)
-                .Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
-                .Take(pagingParameters.PageSize)
                 .ToList();
             }
         }

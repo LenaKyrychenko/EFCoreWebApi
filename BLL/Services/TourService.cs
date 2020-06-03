@@ -86,7 +86,8 @@ namespace BLL.Services
             {
                 var models = unitOfWork.TourRepository.GetFilter(pagingParameters);
                 var list = mapper.Map<IEnumerable<Tour>, IEnumerable<TourDTO>>(models);
-                return list;
+                return list.Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
+                .Take(pagingParameters.PageSize); 
             }
             else if(pagingParameters.TypeOfTour == "All" && pagingParameters.TypeOfTransport != "All")
             {
@@ -123,7 +124,9 @@ namespace BLL.Services
                     };
                     tourlist.Add(tourDTO);
                 }
-                return tourlist;
+                return tourlist.Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
+                .Take(pagingParameters.PageSize);
+
             }
             else if (pagingParameters.TypeOfTour != "All" && pagingParameters.TypeOfTransport == "All")
             {
@@ -160,7 +163,8 @@ namespace BLL.Services
                     };
                     tourlist.Add(tourDTO);
                 }
-                return tourlist;
+                return tourlist.Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
+                .Take(pagingParameters.PageSize);
             }
             else
             {
@@ -198,7 +202,8 @@ namespace BLL.Services
                     };
                     tourlist.Add(tourDTO);
                 }
-                return tourlist;
+                return tourlist.Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
+                .Take(pagingParameters.PageSize);
             }
 
 

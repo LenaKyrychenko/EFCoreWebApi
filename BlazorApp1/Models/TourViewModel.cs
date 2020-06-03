@@ -7,6 +7,7 @@ namespace BlazorApp1.Models
 {
     public class TourViewModel
     {
+        public int id { get; set; }
         public string nameTour { get; set; }
         public string route { get; set; }
         public string typeOfTour { get; set; }

@@ -15,5 +15,6 @@ namespace BlazorApp1.Models
         public DateTime dateOfFinish { get; set; }
         public string typeOfTransport { get; set; }
         public double price { get; set; }
+        public string description { get; set; }
     }
 }

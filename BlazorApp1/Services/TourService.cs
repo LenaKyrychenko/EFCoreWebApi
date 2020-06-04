@@ -33,7 +33,8 @@ namespace BlazorApp1.Services
             res.EnsureSuccessStatusCode();
 
             using var responseContent = await res.Content.ReadAsStreamAsync();
-            return await JsonSerializer.DeserializeAsync<TourViewModel>(responseContent);
+            var r = await JsonSerializer.DeserializeAsync<TourViewModel>(responseContent);
+            return r;
         }
 
         public async Task<List<TourViewModel>> GetFilter(PagingParameters p)

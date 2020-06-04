@@ -155,10 +155,7 @@
             </div>
             <div class="opys">
                 <p>
-                    Otel' otdalen ot shumnogo tsentra kurorta, no udobno raspolozhen k plyazhu. Vnimatel'nyy personal. Rekomenduyetsya dlya spokoynogo otdykha. Postroyen v 2002 godu. Poslednyaya restavratsiya provedena v 2018 godu. Otel' sostoit iz odnogo 4-etazhnogo korpusa. Otkryt s maya po oktyabr'. Otel' Kavkaz Golden Dune raspolozhen v 1 km ot tsentra Solnechnogo berega i v 30 metrakh ot Peschanykh dyun. Nesebr v 2 km.
-                    Развернуть
-                    383/5000
-                    The hotel is remote from the busy center of the resort, but conveniently located to the beach. Attentive staff. Recommended for a relaxing holiday. Built in 2002. The last restoration was carried out in 2018. The hotel consists of one 4-storey building. Open from May to October. Hotel Kavkaz Golden Dune is located 1 km from the center of Sunny Beach and 30 meters from the Sand Dunes. Nessebar is 2 km away.
+                    @tourViewModel.description
                 </p>
             </div>
             <div class="button">
@@ -180,8 +177,8 @@
         price = 125000
     };
 
-    //protected override async Task OnInitializedAsync()
-    //{
-    //    tourViewModel = await tourService.GetById(tourid);
-    //}
+    protected override async Task OnInitializedAsync()
+    {
+        tourViewModel = await tourService.GetById(tourid);
+    }
 }

@@ -13,8 +13,8 @@ namespace ClassLibrary1.Entities
         public DateTime DateOfFinish { get; set; }
         public int TypeOfTransportId { get; set; }
         public double Price { get; set; }
-        //public string Description { get; set; }
-        //public string Image { get; set; }
+        public string Description { get; set; }
+        public string ImagePath { get; set; }
 
         public ICollection<Reservation> Reservations { get; set; }
         public TypesOfTransport TypesOfTransport { get; set; }

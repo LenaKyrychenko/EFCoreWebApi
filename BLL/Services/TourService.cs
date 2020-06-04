@@ -43,26 +43,30 @@ namespace BLL.Services
                          join type2 in typestransport on tour.TypeOfTransportId equals type2.Id
                          select new
                          {
+                             Id =tour.Id,
                              Tourname = tour.NameTour,
                              Route = tour.Route,
                              TypeOfTour = type1.TypeOfTour,
                              DateOfStart = tour.DateOfStart,
                              DateOfFinish = tour.DateOfFinish,
                              TypeOfTransport = type2.TypeOfTransport,
-                             Price = tour.Price
+                             Price = tour.Price,
+                             Description = tour.Description
                          };
             List<TourDTO> models = new List<TourDTO>();
             foreach(var l in listjoin)
             {
                 TourDTO tourDTO = new TourDTO
                 {
+                    Id= l.Id,
                     NameTour = l.Tourname,
                     Route = l.Route,
                     TypeOfTour = l.TypeOfTour,
                     DateOfStart = l.DateOfStart,
                     DateOfFinish = l.DateOfFinish,
                     TypeOfTransport = l.TypeOfTransport,
-                    Price = l.Price
+                    Price = l.Price,
+                    Description = l.Description
                 };
                 models.Add(tourDTO);
             }
@@ -100,13 +104,15 @@ namespace BLL.Services
                            where typetransport.TypeOfTransport == pagingParameters.TypeOfTransport
                            select new
                            {
+                               Id = tour.Id,
                                Tourname = tour.NameTour,
                                Route = tour.Route,
                                TypeOfTour = typetour.TypeOfTour,
                                DateOfStart = tour.DateOfStart,
                                DateOfFinish = tour.DateOfFinish,
                                TypeOfTransport = typetransport.TypeOfTransport,
-                               Price = tour.Price
+                               Price = tour.Price,
+                               Description = tour.Description
                            };
 
                 List<TourDTO> tourlist = new List<TourDTO>();
@@ -114,13 +120,15 @@ namespace BLL.Services
                 {
                     TourDTO tourDTO = new TourDTO
                     {
+                        Id = l.Id,
                         NameTour = l.Tourname,
                         Route = l.Route,
                         TypeOfTour = l.TypeOfTour,
                         DateOfStart = l.DateOfStart,
                         DateOfFinish = l.DateOfFinish,
                         TypeOfTransport = l.TypeOfTransport,
-                        Price = l.Price
+                        Price = l.Price,
+                        Description = l.Description
                     };
                     tourlist.Add(tourDTO);
                 }
@@ -139,13 +147,15 @@ namespace BLL.Services
                            where typetour.TypeOfTour == pagingParameters.TypeOfTour
                            select new
                            {
+                               Id = tour.Id,
                                Tourname = tour.NameTour,
                                Route = tour.Route,
                                TypeOfTour = typetour.TypeOfTour,
                                DateOfStart = tour.DateOfStart,
                                DateOfFinish = tour.DateOfFinish,
                                TypeOfTransport = typetransport.TypeOfTransport,
-                               Price = tour.Price
+                               Price = tour.Price,
+                               Description = tour.Description
                            };
 
                 List<TourDTO> tourlist = new List<TourDTO>();
@@ -153,13 +163,15 @@ namespace BLL.Services
                 {
                     TourDTO tourDTO = new TourDTO
                     {
+                        Id = l.Id,
                         NameTour = l.Tourname,
                         Route = l.Route,
                         TypeOfTour = l.TypeOfTour,
                         DateOfStart = l.DateOfStart,
                         DateOfFinish = l.DateOfFinish,
                         TypeOfTransport = l.TypeOfTransport,
-                        Price = l.Price
+                        Price = l.Price,
+                        Description = l.Description
                     };
                     tourlist.Add(tourDTO);
                 }
@@ -178,13 +190,15 @@ namespace BLL.Services
                            where typetour.TypeOfTour == pagingParameters.TypeOfTour
                            select new
                            {
+                               Id = tour.Id,
                                Tourname = tour.NameTour,
                                Route = tour.Route,
                                TypeOfTour = typetour.TypeOfTour,
                                DateOfStart = tour.DateOfStart,
                                DateOfFinish = tour.DateOfFinish,
                                TypeOfTransport = typetransport.TypeOfTransport,
-                               Price = tour.Price
+                               Price = tour.Price,
+                               Description = tour.Description
                            };
 
                 List<TourDTO> tourlist = new List<TourDTO>();
@@ -192,13 +206,15 @@ namespace BLL.Services
                 {
                     TourDTO tourDTO = new TourDTO
                     {
+                        Id = l.Id,
                         NameTour = l.Tourname,
                         Route = l.Route,
                         TypeOfTour = l.TypeOfTour,
                         DateOfStart = l.DateOfStart,
                         DateOfFinish = l.DateOfFinish,
                         TypeOfTransport = l.TypeOfTransport,
-                        Price = l.Price
+                        Price = l.Price,
+                        Description = l.Description
                     };
                     tourlist.Add(tourDTO);
                 }

@@ -6,11 +6,13 @@
 <style>
     body {
         background-color: #FFC897;
+        height:1000px;
+        border:1px blue solid;
     }
 
     .conteiner {
         width: 70%;
-        height: 900px;
+        height: 800px;
         background-color: #FFFFFF;
         position: absolute;
         margin-left: 15%;
@@ -34,7 +36,7 @@
         width: 43%;
         position: absolute;
         margin-left: 53%;
-        margin-top: 3.5%;
+        margin-top: 3.2%;
         height: 40%;
     }
 
@@ -61,7 +63,7 @@
             font-family: Sitka Text;
             font-size: 30px;
             /*margin-top: 110px;*/
-            margin-top: 70px;
+            margin-top: 65px;
             margin-bottom: 0px;
         }
 
@@ -69,7 +71,7 @@
             position: absolute;
             font-family: Sitka Text;
             font-size: 30px;
-            margin-top: 130px;
+            margin-top: 120px;
             /*margin-top: 0px;*/
             margin-bottom: 0px;
         }
@@ -78,7 +80,7 @@
             position: absolute;
             font-family: Sitka Text;
             font-size: 40px;
-            margin-top: 265px;
+            margin-top: 215px;
             /*margin-top: 0px;*/
             margin-bottom: 0px;
             font-weight: normal;
@@ -114,6 +116,7 @@
         /*border: 1px black solid;*/
         width: 68%;
         margin-left: 17%;
+        margin-top:-100px;
     }
 
         .button .reserve {
@@ -142,15 +145,16 @@
 </style>
         <div class="conteiner">
             <div class="pic">
-                <img src="img/Hello-Ukraine-Vebinary_01052020_5-700x420.jpg">
+                <img src="@tourViewModel.imagePath">
             </div>
             <div class="smallinfo">
                 <p class="name">@tourViewModel.nameTour</p>
                 <div class="info">
                     <p class="dstart"><b>Date of start:</b> @tourViewModel.dateOfStart.ToShortDateString()</p>
                     <p class="dfinish"><b>Date of finish:</b>@tourViewModel.dateOfFinish.ToShortDateString()</p>
-                    <p class="price"><b>Price:</b> @tourViewModel.price UAH</p>
                     <p class="route"><b>Route:</b><br> @tourViewModel.route</p>
+                    <p class="price"><b>Price:</b> @tourViewModel.price UAH</p>
+
                 </div>
             </div>
             <div class="opys">
@@ -159,7 +163,7 @@
                 </p>
             </div>
             <div class="button">
-                <a href="#" class="back">Back</a>
+                <a href="tours" class="back">Back</a>
                 <a href="#" class="reserve">Reserve</a>
             </div>
         </div>
@@ -168,14 +172,7 @@
 @code {
     [Parameter]
     public int tourid { get; set; }
-    TourViewModel tourViewModel = new TourViewModel
-    {
-        nameTour = "GFHSFHS",
-        route = "dfgdfg-dhsfhsfh-sfghsfhs",
-        dateOfStart = DateTime.Now,
-        dateOfFinish = DateTime.Now,
-        price = 125000
-    };
+    TourViewModel tourViewModel = new TourViewModel();
 
     protected override async Task OnInitializedAsync()
     {

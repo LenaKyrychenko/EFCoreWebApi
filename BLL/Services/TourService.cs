@@ -51,7 +51,8 @@ namespace BLL.Services
                              DateOfFinish = tour.DateOfFinish,
                              TypeOfTransport = type2.TypeOfTransport,
                              Price = tour.Price,
-                             Description = tour.Description
+                             Description = tour.Description,
+                             ImagePath = tour.ImagePath
                          };
             List<TourDTO> models = new List<TourDTO>();
             foreach(var l in listjoin)
@@ -66,7 +67,8 @@ namespace BLL.Services
                     DateOfFinish = l.DateOfFinish,
                     TypeOfTransport = l.TypeOfTransport,
                     Price = l.Price,
-                    Description = l.Description
+                    Description = l.Description,
+                    ImagePath = l.ImagePath
                 };
                 models.Add(tourDTO);
             }
@@ -112,7 +114,8 @@ namespace BLL.Services
                                DateOfFinish = tour.DateOfFinish,
                                TypeOfTransport = typetransport.TypeOfTransport,
                                Price = tour.Price,
-                               Description = tour.Description
+                               Description = tour.Description,
+                               ImagePath = tour.ImagePath
                            };
 
                 List<TourDTO> tourlist = new List<TourDTO>();
@@ -128,7 +131,8 @@ namespace BLL.Services
                         DateOfFinish = l.DateOfFinish,
                         TypeOfTransport = l.TypeOfTransport,
                         Price = l.Price,
-                        Description = l.Description
+                        Description = l.Description,
+                        ImagePath = l.ImagePath
                     };
                     tourlist.Add(tourDTO);
                 }
@@ -155,7 +159,8 @@ namespace BLL.Services
                                DateOfFinish = tour.DateOfFinish,
                                TypeOfTransport = typetransport.TypeOfTransport,
                                Price = tour.Price,
-                               Description = tour.Description
+                               Description = tour.Description,
+                               ImagePath = tour.ImagePath
                            };
 
                 List<TourDTO> tourlist = new List<TourDTO>();
@@ -171,7 +176,8 @@ namespace BLL.Services
                         DateOfFinish = l.DateOfFinish,
                         TypeOfTransport = l.TypeOfTransport,
                         Price = l.Price,
-                        Description = l.Description
+                        Description = l.Description,
+                        ImagePath = l.ImagePath
                     };
                     tourlist.Add(tourDTO);
                 }
@@ -198,7 +204,8 @@ namespace BLL.Services
                                DateOfFinish = tour.DateOfFinish,
                                TypeOfTransport = typetransport.TypeOfTransport,
                                Price = tour.Price,
-                               Description = tour.Description
+                               Description = tour.Description,
+                               ImagePath = tour.ImagePath
                            };
 
                 List<TourDTO> tourlist = new List<TourDTO>();
@@ -214,7 +221,8 @@ namespace BLL.Services
                         DateOfFinish = l.DateOfFinish,
                         TypeOfTransport = l.TypeOfTransport,
                         Price = l.Price,
-                        Description = l.Description
+                        Description = l.Description,
+                        ImagePath = l.ImagePath
                     };
                     tourlist.Add(tourDTO);
                 }

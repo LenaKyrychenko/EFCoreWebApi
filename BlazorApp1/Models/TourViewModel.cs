@@ -16,5 +16,6 @@ namespace BlazorApp1.Models
         public string typeOfTransport { get; set; }
         public double price { get; set; }
         public string description { get; set; }
+        public string imagePath { get; set; }
     }
 }

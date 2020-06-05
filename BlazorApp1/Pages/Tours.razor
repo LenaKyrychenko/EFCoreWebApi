@@ -4,12 +4,14 @@
 @using DAL;
 @inject TourService tourService;
 
+
+
 <h1>Tours</h1>
 
 
-<p>
+@*<p>
     <MatDatePicker @bind-Value="@Date1" Label="Date"></MatDatePicker>
-</p>
+</p>*@
 
 <p>
     <MatSelectItem @bind-Value="@value1" Items="@vlaue1Items" Label="Tour"></MatSelectItem>
@@ -71,7 +73,7 @@ else
 @code {
 
 
-    public DateTime Date1 { get; set; }
+    //public DateTime Date1 { get; set; }
 
     string? value1;
     string[] vlaue1Items = new[]
@@ -143,7 +145,7 @@ else
         {
             PageNumber = pageNum,
             PageSize = pageSize,
-            Date = Date1,
+            //Date = Date1,
             TypeOfTour = value1 ?? "All",
             TypeOfTransport = typetransport ?? "All",
             Price = myDoubleValue == 0 ? 1000000 : myDoubleValue

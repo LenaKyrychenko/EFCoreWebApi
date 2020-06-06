@@ -10,8 +10,8 @@
 
 
 @*<p>
-    <MatDatePicker @bind-Value="@Date1" Label="Date"></MatDatePicker>
-</p>*@
+        <MatDatePicker @bind-Value="@Date1" Label="Date"></MatDatePicker>
+    </p>*@
 
 <p>
     <MatSelectItem @bind-Value="@value1" Items="@vlaue1Items" Label="Tour"></MatSelectItem>
@@ -26,84 +26,166 @@
 </p>
 <MatButton Raised="true" OnClick="Filter">Baton</MatButton>
 
+<style>
+    .bodytop {
+        display: flex;
+        /*border:1px black solid;*/
+        /*background: url(../img/fon.png);*/
+        margin-left: 138px;
+    }
+
+    .conteinert {
+        width: 250px;
+        height: 300px;
+        /*border:1px black solid;*/
+        margin-left: 120px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .imgt {
+        width: 100%;
+        height: 50%;
+    }
+
+    .namet {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: Times New Roman;
+    }
+
+    .typet {
+        /*margin-top: 3px;*/
+        margin-bottom: 0;
+        font-size: 20px;
+        margin-left: 10px;
+        font-family: Times New Roman;
+        /*line-height:0;*/
+    }
+
+    .transportt {
+        margin-top: -5px;
+        margin-bottom: 0;
+        font-size: 20px;
+        margin-left: 10px;
+        font-family: Times New Roman;
+
+    }
+
+    .routet {
+        margin-top: -3px;
+        margin-bottom: 0;
+        font-size: 15px;
+        text-align: center;
+        font-family: Times New Roman;
+    }
+
+    .pricet {
+        text-align: right;
+        font-size: 30px;
+        margin-top: -5px;
+        margin-bottom: 0;
+        margin-right: 10px;
+        font-family: Times New Roman;
+        color: #D0000A;
+    }
+
+    .bodytop .conteinert {
+        justify-content: space-between;
+        float: left;
+        margin-top: 28px;
+        margin-bottom: 0px;
+    }
+
+    .bodytop .conteinert {
+        transition: .3s;
+    }
+
+        .bodytop .conteinert:hover {
+            box-shadow: 0 15px 20px rgba(255,166,12,.4);
+            transform: translateY(-7px);
+        }
+
+    .tourt {
+        color: #212529;
+    }
+
+        .tourt:hover {
+            text-decoration: none;
+            color: #212529;
+        }
+</style>
+
 @if (tours == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
-    <table class="tabletour">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Route</th>
-                <th>Type of tour</th>
-                <th>Date of start</th>
-                <th>Date of finish</th>
-                <th>Type of transport</th>
-                <th>Price</th> 
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var tours in tours)
-            {
-                <tr>
-                    <td>@tours.nameTour</td>
-                    <td>@tours.route</td>
-                    <td>@tours.typeOfTour</td>
-                    <td>@tours.dateOfStart</td>
-                    <td>@tours.dateOfFinish</td>
-                    <td>@tours.typeOfTransport</td>
-                    <td>@tours.price</td>
-                    <td><a href="/tourone/@tours.id">More</a></td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    @if (pageNum > 1)
+
+<div class="bodytop">
+    @foreach (var tours in tours)
     {
-        <button name="prev" @onclick="PrevPage">Prev</button>
+    <a class="tourt" href="/tourone/@tours.id">
+        <div class="conteinert">
+            <img class="imgt" src="@tours.imagePath">
+            <p class="namet">@tours.nameTour</p>
+            <p class="typet"><b>Type:</b> @tours.typeOfTour</p>
+            <p class="transportt"><b>Transport:</b> @tours.typeOfTransport</p>
+            <p class="routet">(@tours.route)</p>
+            <p class="pricet">@tours.price UAH</p>
+        </div>
+    </a>
+    }
+  </div>
+
+        @if (pageNum > 1)
+        {
+            <button name="prev" @onclick="PrevPage">Prev</button>
+
+        }
+        <span>@pageNum</span>
+        <button @onclick="NextPage">Next</button>
 
     }
-    <span>@pageNum</span>
-    <button @onclick="NextPage">Next</button>
 
-}
-
-@code {
+    @code {
 
 
-    //public DateTime Date1 { get; set; }
+        //public DateTime Date1 { get; set; }
 
-    string? value1;
-    string[] vlaue1Items = new[]
-    {
-                "Extreme",
-                "Gastro-tour",
-                "Cruise",
-                "Ski",
-                "Ukraine",
-                "All",
+        string? value1;
+        string[] vlaue1Items = new[]
+        {
+    "Extreme",
+    "Gastro-tour",
+    "Cruise",
+    "Ski",
+    "Ukraine",
+    "All",
     };
 
-    string? typetransport;
-    string[] typetransportItems = new[]
-    {
-                "Bus",
-                "Train",
-                "Airplane",
-                "Ship",
-                "All",
+        string? typetransport;
+        string[] typetransportItems = new[]
+        {
+    "Bus",
+    "Train",
+    "Airplane",
+    "Ship",
+    "All",
     };
 
 
-    double myDoubleValue;
+        double myDoubleValue;
 
-    bool click = false;
+        bool click = false;
 
-    private List<TourViewModel> tours;
+private List<TourViewModel>
+    tours;
     private int pageNum = 1;
-    private int pageSize = 2;
+    private int pageSize = 3;
     protected override async Task OnInitializedAsync()
     {
         tours = await tourService.GetAll(new PagingParameters { PageNumber = pageNum, PageSize = pageSize });
@@ -152,4 +234,4 @@ else
         };
         tours = await tourService.GetFilter(paging);
     }
-}
+    }

@@ -3,35 +3,22 @@
 @using BlazorApp1.Services;
 @using DAL;
 @inject TourService tourService;
-
-
-
-<h1>Tours</h1>
+@*<h1>Tours</h1>*@
 
 
 @*<p>
         <MatDatePicker @bind-Value="@Date1" Label="Date"></MatDatePicker>
     </p>*@
 
-<p>
-    <MatSelectItem @bind-Value="@value1" Items="@vlaue1Items" Label="Tour"></MatSelectItem>
-</p>
-
-<p>
-    <MatSelectItem @bind-Value="@typetransport" Items="@typetransportItems" Label="Transport"></MatSelectItem>
-</p>
-
-<p>
-    <MatTextField @bind-Value="@myDoubleValue" Label="Int Field"></MatTextField>
-</p>
-<MatButton Raised="true" OnClick="Filter">Baton</MatButton>
 
 <style>
     .bodytop {
         display: flex;
+        flex-wrap: wrap;
         /*border:1px black solid;*/
         /*background: url(../img/fon.png);*/
-        margin-left: 138px;
+        margin-left: 250px; /*138*/
+        margin-top:-350px;
     }
 
     .conteinert {
@@ -71,7 +58,6 @@
         font-size: 20px;
         margin-left: 10px;
         font-family: Times New Roman;
-
     }
 
     .routet {
@@ -116,6 +102,18 @@
             text-decoration: none;
             color: #212529;
         }
+
+    .filter {
+        /*border: 1px black solid;*/
+        width: 250px;
+        /*box-shadow: 0 15px 20px rgba(255,166,12,.4);*/
+    }
+
+    .bprevnext {
+        margin-left: 50%;
+        margin-top:5%;
+        margin-bottom:5%;
+    }
 </style>
 
 @if (tours == null)
@@ -124,41 +122,75 @@
 }
 else
 {
+<div class="filter">
+    <h1>Tours</h1>
+    <h2>Filter</h2>
+    <p>
+        <MatSelectItem @bind-Value="@value1" Items="@vlaue1Items" Label="Tour"></MatSelectItem>
+    </p>
 
-<div class="bodytop">
-    @foreach (var tours in tours)
-    {
-    <a class="tourt" href="/tourone/@tours.id">
-        <div class="conteinert">
-            <img class="imgt" src="@tours.imagePath">
-            <p class="namet">@tours.nameTour</p>
-            <p class="typet"><b>Type:</b> @tours.typeOfTour</p>
-            <p class="transportt"><b>Transport:</b> @tours.typeOfTransport</p>
-            <p class="routet">(@tours.route)</p>
-            <p class="pricet">@tours.price UAH</p>
-        </div>
-    </a>
-    }
-  </div>
+    <p>
+        <MatSelectItem @bind-Value="@typetransport" Items="@typetransportItems" Label="Transport"></MatSelectItem>
+    </p>
 
+    <p>
+        <MatTextField @bind-Value="@myDoubleValue" Label="Price"></MatTextField>
+    </p>
+    <MatButton Raised="true" OnClick="Filter">Filter</MatButton>
+    @*<p>
+        <MatTextField @bind-Value="@MyString2" Label="Search" Icon="search"></MatTextField>
+    </p>
+    <MatButton Raised="true" >Search</MatButton>*@
+</div>
+    <div class="bodytop">
+
+        @foreach (var tours in tours)
+        {
+            <a class="tourt" href="/tourone/@tours.id">
+                <div class="conteinert">
+                    <img class="imgt" src="@tours.imagePath">
+                    <p class="namet">@tours.nameTour</p>
+                    <p class="typet"><b>Type:</b> @tours.typeOfTour</p>
+                    <p class="transportt"><b>Transport:</b> @tours.typeOfTransport</p>
+                    <p class="routet">(@tours.route)</p>
+                    <p class="pricet">@tours.price UAH</p>
+                </div>
+            </a>
+        }
+    </div>
+
+    <div class="bprevnext">
         @if (pageNum > 1)
         {
-            <button name="prev" @onclick="PrevPage">Prev</button>
+            @*<button name="prev" @onclick="PrevPage">Prev</button>*@
+            <MatButton Raised="true" Name="prev" OnClick="PrevPage">Prev</MatButton>
 
         }
         <span>@pageNum</span>
-        <button @onclick="NextPage">Next</button>
+        @*<button @onclick="NextPage">Next</button>*@
+        <MatButton Raised="true" OnClick="NextPage">Next</MatButton>
+    </div>
+}
 
+@code {
+
+    public string MyString2
+    {
+        get => _myString2;
+        set
+        {
+            _myString2 = value;
+            this.StateHasChanged();
+        }
     }
 
-    @code {
+    private string _myString2;
 
+    //public DateTime Date1 { get; set; }
 
-        //public DateTime Date1 { get; set; }
-
-        string? value1;
-        string[] vlaue1Items = new[]
-        {
+    string? value1;
+    string[] vlaue1Items = new[]
+    {
     "Extreme",
     "Gastro-tour",
     "Cruise",
@@ -167,9 +199,9 @@ else
     "All",
     };
 
-        string? typetransport;
-        string[] typetransportItems = new[]
-        {
+    string? typetransport;
+    string[] typetransportItems = new[]
+    {
     "Bus",
     "Train",
     "Airplane",
@@ -178,14 +210,14 @@ else
     };
 
 
-        double myDoubleValue;
+    double myDoubleValue;
 
-        bool click = false;
+    bool click = false;
 
-private List<TourViewModel>
-    tours;
+    private List<TourViewModel>
+        tours;
     private int pageNum = 1;
-    private int pageSize = 3;
+    private int pageSize = 6;
     protected override async Task OnInitializedAsync()
     {
         tours = await tourService.GetAll(new PagingParameters { PageNumber = pageNum, PageSize = pageSize });
@@ -216,8 +248,6 @@ private List<TourViewModel>
                 tours = await tourService.GetAll(new PagingParameters { PageNumber = pageNum, PageSize = pageSize });
             }
         }
-
-
     }
 
     public async Task Filter()
@@ -234,4 +264,4 @@ private List<TourViewModel>
         };
         tours = await tourService.GetFilter(paging);
     }
-    }
+}

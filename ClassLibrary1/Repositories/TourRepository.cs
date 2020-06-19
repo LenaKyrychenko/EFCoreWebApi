@@ -26,17 +26,8 @@ namespace DAL.Repositories
 
         public IEnumerable<Tour> GetFilter(PagingParameters pagingParameters)
         {
-            if (pagingParameters.Date != null)
-            {
-                return GetAll().Where(p => p.Price <= pagingParameters.Price)
-                .Where(d => pagingParameters.Date==d.DateOfStart)
-                .ToList();
-            }
-            else
-            {
-                return GetAll().Where(p => p.Price <= pagingParameters.Price)
-                .ToList();
-            }
+             return GetAll().Where(p => p.Price <= pagingParameters.Price)
+             .ToList();
         }
     }
 }
